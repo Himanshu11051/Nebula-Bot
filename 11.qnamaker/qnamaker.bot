@@ -1,0 +1,27 @@
+{
+    "name": "qnamaker",
+    "description": "",
+    "services": [
+        {
+            "type": "endpoint",
+            "appId": "",
+            "appPassword": "",
+            "endpoint": "http://localhost:3978/api/messages",
+            "id": "25",
+            "name": "development"
+        },
+        {
+            "type": "qna",
+            "endpointKey": "9754c2dd-de64-4b00-b287-baab29dc8ee9",
+            "hostname": "https://nebulaqnaknowledgebase.azurewebsites.net/qnamaker",
+            "id": "227",
+            "kbId": "81af0d66-b5f7-498d-acbb-c0d80e3b2056",
+            "name": "qnamaker",
+            "subscriptionKey": "7a24b2d46111435ebcb3ca1402ba0ae7"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0",
+    "path": "/Users/himanshu/Documents/Cloudburst Hackathon Dev/Bot Builder Samples/botbuilder-samples/samples/javascript_nodejs/11.qnamaker/qnamaker.bot",
+    "overrides": null
+}
