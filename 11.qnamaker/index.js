@@ -6,6 +6,7 @@ const restify = require('restify');
 const { BotFrameworkAdapter } = require('botbuilder');
 const { BotConfiguration } = require('botframework-config');
 const { QnAMakerBot } = require('./bot');
+const updateKB = require('./updateKB.js');
 
 // Read botFilePath and botFileSecret from .env file.
 // Note: Ensure you have a .env file and include botFilePath and botFileSecret.
@@ -44,9 +45,9 @@ const qnaConfig = botConfig.findServiceByNameOrId(QNA_CONFIGURATION);
 
 // Map the contents to the required format for `QnAMaker`.
 const qnaEndpointSettings = {
-    knowledgeBaseId: "81af0d66-b5f7-498d-acbb-c0d80e3b2056",
-    endpointKey: "9754c2dd-de64-4b00-b287-baab29dc8ee9",
-    host: "https://nebulaqnaknowledgebase.azurewebsites.net/qnamaker"
+    knowledgeBaseId: '81af0d66-b5f7-498d-acbb-c0d80e3b2056',
+    endpointKey: '9754c2dd-de64-4b00-b287-baab29dc8ee9',
+    host: 'https://nebulaqnaknowledgebase.azurewebsites.net/qnamaker'
 };
 
 // Create adapter. See https://aka.ms/about-bot-adapter to learn more about adapters.
@@ -72,6 +73,11 @@ try {
 
 // Create HTTP server.
 let server = restify.createServer();
+
+server.use(restify.plugins.acceptParser(server.acceptable));
+server.use(restify.plugins.queryParser());
+server.use(restify.plugins.bodyParser());
+
 server.listen(process.env.port || process.env.PORT || 3978, function() {
     console.log(`\n${ server.name } listening to ${ server.url }.`);
     console.log(`\nGet Bot Framework Emulator: https://aka.ms/botframework-emulator.`);
@@ -83,4 +89,11 @@ server.post('/api/messages', (req, res) => {
     adapter.processActivity(req, res, async (turnContext) => {
         await bot.onTurn(turnContext);
     });
+});
+
+
+
+// Listen for incoming requests.
+server.post('/api/updateKB', (req, res) => {
+    updateKB.update_KB_from_UI(req,res);
 });
