@@ -3,6 +3,7 @@
 
 const path = require('path');
 const restify = require('restify');
+const corsMiddleware = require('restify-cors-middleware');
 const { BotFrameworkAdapter } = require('botbuilder');
 const { BotConfiguration } = require('botframework-config');
 const { QnAMakerBot } = require('./bot');
@@ -74,9 +75,17 @@ try {
 // Create HTTP server.
 let server = restify.createServer();
 
+const cors = corsMiddleware({
+    origins: ['*'],
+  })
+   
+server.pre(cors.preflight)
+server.use(cors.actual)
+
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
+
 
 server.listen(process.env.port || process.env.PORT || 3978, function() {
     console.log(`\n${ server.name } listening to ${ server.url }.`);
