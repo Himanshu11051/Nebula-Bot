@@ -11,7 +11,7 @@ let https = require('https');
 let subscriptionKey = '7a24b2d46111435ebcb3ca1402ba0ae7';
 
 // NOTE: Replace this with a valid knowledge base ID.
-let kb = '81af0d66-b5f7-498d-acbb-c0d80e3b2056';
+let kb = '60a88ab6-7e7d-4864-aa2f-2047f7b288f6';
 
 let host = 'westus.api.cognitive.microsoft.com';
 let service = '/qnamaker/v4.0';

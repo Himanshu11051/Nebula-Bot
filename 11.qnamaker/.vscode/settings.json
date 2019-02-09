@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/dadba68e-347a-4a82-a3a2-a072cb4fed51/resourceGroups/NebulaTestBotResource/providers/Microsoft.Web/sites/nebula-test",
+    "appService.deploySubpath": ""
+}

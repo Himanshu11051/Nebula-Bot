@@ -12,10 +12,10 @@
         },
         {
             "type": "qna",
-            "endpointKey": "9754c2dd-de64-4b00-b287-baab29dc8ee9",
-            "hostname": "https://nebulaqnaknowledgebase.azurewebsites.net/qnamaker",
+            "endpointKey": "9f36f3e7-6223-420d-9cf3-109dad41df4f",
+            "hostname": "https://nebulaqnamakerknowledgebase.azurewebsites.net/qnamaker",
             "id": "227",
-            "kbId": "81af0d66-b5f7-498d-acbb-c0d80e3b2056",
+            "kbId": "60a88ab6-7e7d-4864-aa2f-2047f7b288f6",
             "name": "qnamaker",
             "subscriptionKey": "7a24b2d46111435ebcb3ca1402ba0ae7"
         }

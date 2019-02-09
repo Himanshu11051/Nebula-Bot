@@ -45,9 +45,9 @@ const qnaConfig = botConfig.findServiceByNameOrId(QNA_CONFIGURATION);
 
 // Map the contents to the required format for `QnAMaker`.
 const qnaEndpointSettings = {
-    knowledgeBaseId: '81af0d66-b5f7-498d-acbb-c0d80e3b2056',
-    endpointKey: '9754c2dd-de64-4b00-b287-baab29dc8ee9',
-    host: 'https://nebulaqnaknowledgebase.azurewebsites.net/qnamaker'
+    knowledgeBaseId: '60a88ab6-7e7d-4864-aa2f-2047f7b288f6',
+    endpointKey: '9f36f3e7-6223-420d-9cf3-109dad41df4f',
+    host: 'https://nebulaqnamakerknowledgebase.azurewebsites.net/qnamaker'
 };
 
 // Create adapter. See https://aka.ms/about-bot-adapter to learn more about adapters.
