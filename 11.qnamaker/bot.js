@@ -36,13 +36,13 @@ class QnAMakerBot {
 
             // If no answers were returned from QnA Maker, reply with help.
             } else {
-                await turnContext.sendActivity('No QnA Maker answers were found. This example uses a QnA Maker Knowledge Base that focuses on smart light bulbs. To see QnA Maker in action, ask the bot questions like "Why won\'t it turn on?" or "I need help."');
+                await turnContext.sendActivity('Sorry no relevant answer found to your question"');
             }
 
         // If the Activity is a ConversationUpdate, send a greeting message to the user.
         } else if (turnContext.activity.type === ActivityTypes.ConversationUpdate &&
                    turnContext.activity.recipient.id !== turnContext.activity.membersAdded[0].id) {
-            await turnContext.sendActivity('Welcome to the QnA Maker sample! Ask me a question and I will try to answer it.');
+            await turnContext.sendActivity('Welcome. Ask me a question and I will try to answer it.');
 
         // Respond to all other Activity types.
         } else if (turnContext.activity.type !== ActivityTypes.ConversationUpdate) {
