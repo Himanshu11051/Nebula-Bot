@@ -8,7 +8,7 @@ let https = require('https');
 // **********************************************
 
 // Replace this with a valid subscription key.
-let subscriptionKey = '7a24b2d46111435ebcb3ca1402ba0ae7';
+let subscriptionKey = 'ff82b66f42544938b47abba3a61ee11d';
 
 // NOTE: Replace this with a valid knowledge base ID.
 let kb = '60a88ab6-7e7d-4864-aa2f-2047f7b288f6';
@@ -183,6 +183,13 @@ exports.update_KB_from_UI = function(req, res) {
             check_status (path, function (status) {
     // Write out the status.
                 console.log (pretty_print(status.response));
+                var msg1 = (JSON.parse(status.response));
+                if(msg1.statusCode == 404){
+                    
+                    // res.header("Access-Control-Allow-Origin", "*");
+                    // res.header("Access-Control-Allow-Headers", "X-Requested-With");
+                    res.send(msg1);
+                }
     // Convert the status into an object and get the value of the operationState field.
                 var state = (JSON.parse(status.response)).operationState;
     // If the operation isn't complete, wait and query again.
@@ -193,8 +200,8 @@ exports.update_KB_from_UI = function(req, res) {
                     publish_kb (path_for_publish, '', function (result) {
                         console.log (pretty_print(result));
                         var msg = (JSON.parse(result));
-                        res.header("Access-Control-Allow-Origin", "*");
-                        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+                        // res.header("Access-Control-Allow-Origin", "*");
+                        // res.header("Access-Control-Allow-Headers", "X-Requested-With");
                         res.send(msg);
                     });
                 }
