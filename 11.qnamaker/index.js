@@ -76,7 +76,9 @@ try {
 let server = restify.createServer();
 
 const cors = corsMiddleware({
-    origins: ['*'],
+    origins: ['https://nebulabotstudio.azurewebsites.net', 'http://localhost:4200'],
+    allowHeaders: ['Access-Control-Request-Headers'],
+    exposeHeaders: []
   })
    
 server.pre(cors.preflight)
